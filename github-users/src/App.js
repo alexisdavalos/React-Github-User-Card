@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 
 //components
-import GithubUser from './components/GithubUser'
+import GithubUser from './components/GithubUser/GithubUser'
 
 class App extends React.Component {
   //creates constructor function
@@ -34,10 +34,11 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <h1>Github User: {this.state.user}</h1>
-        <header className="App-header">
-         <GithubUser GithubData={this.state.GithubData}/>
+      <header className="App-header">
+            <h1>Github User App</h1>
         </header>
+        <GithubUser GithubData={this.state.GithubData}/>
+       
       </div>
     );
   }
