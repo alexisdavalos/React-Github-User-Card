@@ -81,12 +81,21 @@ class App extends React.Component {
         <h1>Github Current User: {this.state.user}</h1>
         <div>
           <form onSubmit={this.handleUserChange}>
-            <input
+            { (!this.state.valid) ?
+              <Input
+              type="text"
+              onChange={(e) => this.handlesChanges(e)}
+              value={this.state.searchUser}
+              placeholder='Search User'
+              invalid
+            /> :
+            <Input
             type="text"
             onChange={(e) => this.handlesChanges(e)}
             value={this.state.searchUser}
             placeholder='Search User'
-          />
+          /> 
+            }
           <button>submit</button>
           </form>
         </div>

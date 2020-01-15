@@ -49,19 +49,36 @@ a{
   padding: 2% 5%;
   border-radius: 50px;
 }
-
+form{
+  display:flex;
+}
+input{
+  background:none !important;
+  border:none !important;
+  border-radius:none !important;
+  outline:none !important;
+}
+input:focus{
+  outline:none !important;
+}
+button{
+  border:none;
+  background: aqua;
+}
 .UserCard{
   display: flex;
   width: 20%;
   justify-content: center;
-  padding: 2% 10%;
+  padding: 2% 5%;
   box-shadow: 5px 4px 20px 0px black;
   background:#171a1fad;
-  height:100vh;
 }
 .UserCardWrapper{
   width: 20vw;
   position:fixed;
+}
+.Followers{
+  width:100%;
 }
 .FollowerCard{
   width:200px;
