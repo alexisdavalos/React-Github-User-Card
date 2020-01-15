@@ -36,6 +36,7 @@ class App extends React.Component {
       this.setState({
         ...this.state,
         user: this.state.searchUser,
+        searchUser: '',
         valid: true
       })
     }else{
@@ -52,7 +53,6 @@ class App extends React.Component {
         this.setState({
             followers: response.data //set api response to followers state
         })
-        console.log('The State is: ', this.state.GithubData.login)
         console.log(`${this.state.GithubData.login}'s Followers Are:`, this.state.followers) 
     })
     .catch(error=>{
@@ -79,6 +79,7 @@ class App extends React.Component {
     })
   }
   render(){
+    console.log('The State is: ', this.state)
     return (
       <div className="App">
       <header className="App-header">
@@ -108,7 +109,7 @@ class App extends React.Component {
           </form>
         </div>
       </header>
-        <GithubUser setState={this.setState} followers={this.state.followers} GithubData={this.state.GithubData}/>
+        <GithubUser followers={this.state.followers} GithubData={this.state.GithubData}/>
        
       </div>
     )
