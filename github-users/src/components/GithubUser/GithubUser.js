@@ -26,6 +26,9 @@ const GithubUser = (props) => {
             </div>
         </div>
         <div className='Followers'>
+            <div className='title'>
+                <h2>Followers</h2>
+            </div>
             <div className='FollowersWrapper'>
             {props.followers.map(item =>{
                 return <FollowerCard key={item.id} name={item.login} profile={item.html_url} img={item.avatar_url}/>
