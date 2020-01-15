@@ -1,10 +1,15 @@
 import React from 'react';
 import axios from 'axios';
-import {Input} from 'reactstrap'
+import {token} from './auth';
 import './App.css';
-
 //components
 import GithubUser from './components/GithubUser/GithubUser'
+
+let options = {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+}
 
 class App extends React.Component {
   //creates constructor function
@@ -40,10 +45,9 @@ class App extends React.Component {
       })
     }
   }
-  proxy = 'https://cors-anywhere.herokuapp.com/';
   //fetches github followers
   fetchGithubFollowers = (user) =>{
-    axios.get(this.proxy + `https://api.github.com/users/${user}/followers`)
+    axios.get(`https://api.github.com/users/${user}/followers`, options)
     .then(response =>{
         this.setState({
             followers: response.data //set api response to followers state
@@ -57,7 +61,7 @@ class App extends React.Component {
   }
   //fetches github user
   fetchGithubUser = (user) => {
-    axios.get(this.proxy + `https://api.github.com/users/${user}`)
+    axios.get(`https://api.github.com/users/${user}`, options)
     .then(response =>{
       console.log(`Github User Data For: ${user}`, response);
       this.setState({
@@ -78,18 +82,22 @@ class App extends React.Component {
     return (
       <div className="App">
       <header className="App-header">
-        <h1>Github Current User: {this.state.user}</h1>
+        <div>
+          <h1>Github User App</h1>
+        </div>
         <div>
           <form onSubmit={this.handleUserChange}>
             { (!this.state.valid) ?
-              <Input
+            <>
+              <input
               type="text"
               onChange={(e) => this.handlesChanges(e)}
               value={this.state.searchUser}
               placeholder='Search User'
-              invalid
-            /> :
-            <Input
+            /> <p>Oh noes! Field Cannot Be Blank</p>
+            </>
+            :
+            <input
             type="text"
             onChange={(e) => this.handlesChanges(e)}
             value={this.state.searchUser}

@@ -16,13 +16,16 @@
 .App-header {
   background-color: #e64944;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: 1rem;
   color: white;
   position:fixed;
   width:100%;
+  height:100px;
+}
+.App-header > div{
+  margin: 0 5%;
 }
 
 .App-link {
@@ -53,17 +56,31 @@ form{
   display:flex;
 }
 input{
-  background:none !important;
-  border:none !important;
-  border-radius:none !important;
-  outline:none !important;
+  background:none;
+  border:0;
+  border-radius:0;
+  outline:none;
+  font-size: 1rem;
+  font-weight:bold;
+  color:white;
+  padding:1%;
+  border-bottom: solid 2px #282c34;
+  margin-right: -5%;
 }
 input:focus{
   outline:none !important;
 }
+input::placeholder{
+  color:white;
+}
 button{
+  background:#282c34;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 50px;
   border:none;
-  background: aqua;
+  color:white;
+  font-weight:bold;
 }
 .UserCard{
   display: flex;
