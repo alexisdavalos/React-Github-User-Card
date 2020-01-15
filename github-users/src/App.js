@@ -89,14 +89,13 @@ class App extends React.Component {
         <div>
           <form onSubmit={this.handleUserChange}>
             { (!this.state.valid) ?
-            <>
-              <input
-              type="text"
-              onChange={(e) => this.handlesChanges(e)}
-              value={this.state.searchUser}
-              placeholder='Search User'
-            /> <p>Oh noes! Field Cannot Be Blank</p>
-            </>
+            
+            <input
+            type="text"
+            onChange={(e) => this.handlesChanges(e)}
+            value={this.state.searchUser}
+            placeholder='Field Cannot Be Blank'
+            />
             :
             <input
             type="text"

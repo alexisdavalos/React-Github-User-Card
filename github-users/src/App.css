@@ -101,9 +101,12 @@ button{
   flex-direction:column;
 }
 .FollowerCard{
-  width:200px;
+  width: 200px;
   font-size: .75rem;
-  margin: 2%;
+  padding: 1%;
+  margin: 1%;
+  border-radius: 15px;
+  background: #1b1d21bf;
 }
 .FollowersWrapper{
   display: flex;
