@@ -20,11 +20,15 @@ class App extends React.Component {
     this.fetchGithubUser(this.state.user);
     this.fetchGithubFollowers(this.state.user);
   }
-  handleSubmit = e =>{
+  handleUserChange = e =>{
     e.preventDefault()
     if(this.state.searchUser !== ''){
       this.fetchGithubUser(this.state.searchUser);
       this.fetchGithubFollowers(this.state.searchUser);
+      this.setState({
+        ...this.state,
+        user: this.state.searchUser
+      })
     }
   }
   proxy = 'https://cors-anywhere.herokuapp.com/';
@@ -67,7 +71,7 @@ class App extends React.Component {
       <header className="App-header">
         <h1>Github Current User: {this.state.user}</h1>
         <div>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleUserChange}>
             <input
             type="text"
             onChange={(e) => this.handlesChanges(e)}
