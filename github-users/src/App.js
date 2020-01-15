@@ -3,7 +3,8 @@ import axios from 'axios';
 import {token} from './auth';
 import './App.css';
 //components
-import GithubUser from './components/GithubUser/GithubUser'
+import GithubUser from './components/GithubUser/GithubUser';
+import {FaGithub} from 'react-icons/fa';
 
 let options = {
   headers: {
@@ -28,14 +29,15 @@ class App extends React.Component {
     this.fetchGithubFollowers(this.state.user);
   }
   //handles user search
-  handleUserChange = e =>{
+  handleUserChange = (e, newUser) =>{
+    console.log('changing user to...', newUser)
     e.preventDefault()
-    if(this.state.searchUser !== ''){
-      this.fetchGithubUser(this.state.searchUser);
-      this.fetchGithubFollowers(this.state.searchUser);
+    if((this.state.searchUser !== '' || newUser)){
+      this.fetchGithubUser(newUser);
+      this.fetchGithubFollowers(newUser);
       this.setState({
         ...this.state,
-        user: this.state.searchUser,
+        user: newUser,
         searchUser: '',
         valid: true
       })
@@ -48,6 +50,7 @@ class App extends React.Component {
   }
   //fetches github followers
   fetchGithubFollowers = (user) =>{
+    console.log('fetching github followers:..', user)
     axios.get(`https://api.github.com/users/${user}/followers`, options)
     .then(response =>{
         this.setState({
@@ -72,7 +75,7 @@ class App extends React.Component {
       console.log('Get Error:', error);
     })
   }
-  //handle Changes
+  //handle Changes and updates SearchUser State
   handlesChanges = e =>{
     this.setState({
       searchUser: e.target.value
@@ -83,11 +86,11 @@ class App extends React.Component {
     return (
       <div className="App">
       <header className="App-header">
-        <div>
-          <h1>Github User App</h1>
+        <div className='Logo'>
+          <FaGithub size='3em'/><h1>Github User Search</h1>
         </div>
         <div>
-          <form onSubmit={this.handleUserChange}>
+          <form onSubmit={e => this.handleUserChange(e,this.state.searchUser)}>
             { (!this.state.valid) ?
             
             <input
@@ -108,7 +111,7 @@ class App extends React.Component {
           </form>
         </div>
       </header>
-        <GithubUser followers={this.state.followers} GithubData={this.state.GithubData}/>
+        <GithubUser handleUserChange={this.handleUserChange} followers={this.state.followers} GithubData={this.state.GithubData}/>
        
       </div>
     )

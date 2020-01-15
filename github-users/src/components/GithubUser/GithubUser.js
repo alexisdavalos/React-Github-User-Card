@@ -31,7 +31,7 @@ const GithubUser = (props) => {
             </div>
             <div className='FollowersWrapper'>
             {props.followers.map(item =>{
-                return <FollowerCard key={item.id} name={item.login} profile={item.html_url} img={item.avatar_url}/>
+                return <FollowerCard handleUserChange={props.handleUserChange} key={item.id} name={item.login} profile={item.html_url} img={item.avatar_url}/>
             })}
             </div> 
         </div>

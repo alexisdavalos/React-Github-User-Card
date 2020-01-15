@@ -82,6 +82,13 @@ button{
   color:white;
   font-weight:bold;
 }
+.Logo{
+  display:flex;
+  align-items: center;
+}
+.Logo h1{
+  margin-left: 15px;
+}
 .UserCard{
   display: flex;
   width: 20%;
@@ -107,6 +114,10 @@ button{
   margin: 1%;
   border-radius: 15px;
   background: #1b1d21bf;
+}
+.FollowerCard img:hover{
+  opacity: .75;
+  cursor: pointer;
 }
 .FollowersWrapper{
   display: flex;
