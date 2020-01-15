@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {Input} from 'reactstrap'
 import './App.css';
 
 //components
@@ -13,13 +14,15 @@ class App extends React.Component {
       GithubData: [],
       user: 'alexisdavalos',
       followers: [],
-      searchUser: ''
+      searchUser: '',
+      valid: true
     }
   }
   componentDidMount(){
     this.fetchGithubUser(this.state.user);
     this.fetchGithubFollowers(this.state.user);
   }
+  //handles user search
   handleUserChange = e =>{
     e.preventDefault()
     if(this.state.searchUser !== ''){
@@ -27,7 +30,13 @@ class App extends React.Component {
       this.fetchGithubFollowers(this.state.searchUser);
       this.setState({
         ...this.state,
-        user: this.state.searchUser
+        user: this.state.searchUser,
+        valid: true
+      })
+    }else{
+      this.setState({
+        ...this.state,
+        valid: false
       })
     }
   }

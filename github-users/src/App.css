@@ -57,6 +57,7 @@ a{
   padding: 2% 10%;
   box-shadow: 5px 4px 20px 0px black;
   background:#171a1fad;
+  height:100vh;
 }
 .UserCardWrapper{
   width: 20vw;
