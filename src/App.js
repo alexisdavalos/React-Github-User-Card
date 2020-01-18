@@ -1,16 +1,16 @@
 import React from 'react';
 import axios from 'axios';
-import {token} from './auth';
+// import {token} from './auth';
 import './App.css';
 //components
 import GithubUser from './components/GithubUser/GithubUser';
 import {FaGithub} from 'react-icons/fa';
 
-let options = {
-  headers: {
-    Authorization: `Bearer ${token}`
-  }
-}
+// let options = {
+//   headers: {
+//     Authorization: `Bearer ${token}`
+//   }
+// }
 
 class App extends React.Component {
   //creates constructor function
@@ -51,7 +51,7 @@ class App extends React.Component {
   //fetches github followers
   fetchGithubFollowers = (user) =>{
     console.log('fetching github followers:..', user)
-    axios.get(`https://api.github.com/users/${user}/followers`, options)
+    axios.get(`https://api.github.com/users/${user}/followers`)
     .then(response =>{
         this.setState({
             followers: response.data //set api response to followers state
@@ -64,7 +64,7 @@ class App extends React.Component {
   }
   //fetches github user
   fetchGithubUser = (user) => {
-    axios.get(`https://api.github.com/users/${user}`, options)
+    axios.get(`https://api.github.com/users/${user}`)
     .then(response =>{
       console.log(`Github User Data For: ${user}`, response);
       this.setState({
