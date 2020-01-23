@@ -1,0 +1,142 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #e64944;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: white;
+  position:fixed;
+  width:100%;
+  height:100px;
+}
+.App-header > div{
+  margin: 0 5%;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* New Styles */
+
+a{
+  text-decoration: none;
+  color:white;
+  background:#e64944;
+  width: 100%;
+  padding: 2% 5%;
+  border-radius: 50px;
+}
+form{
+  display:flex;
+}
+input{
+  background:none;
+  border:0;
+  border-radius:0;
+  outline:none;
+  font-size: 1rem;
+  font-weight:bold;
+  color:white;
+  padding:1%;
+  border-bottom: solid 2px #282c34;
+  margin-right: -5%;
+}
+input:focus{
+  outline:none !important;
+}
+input::placeholder{
+  color:white;
+}
+button{
+  background:#282c34;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border:none;
+  color:white;
+  font-weight:bold;
+}
+.Logo{
+  display:flex;
+  align-items: center;
+}
+.Logo h1{
+  margin-left: 10px;
+}
+.UserCard{
+  display: flex;
+  width: 20%;
+  justify-content: center;
+  padding: 0% 5%;
+  padding-top: 7%;
+  box-shadow: 5px 4px 20px 0px black;
+  background:#171a1fad;
+}
+.UserCardWrapper{
+  width: 20vw;
+  position:fixed;
+}
+.Followers{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+}
+.FollowerCard{
+  width: 200px;
+  font-size: .75rem;
+  padding: 1%;
+  margin: 1%;
+  border-radius: 15px;
+  background: #1b1d21bf;
+}
+.FollowerCard img:hover{
+  opacity: .75;
+  cursor: pointer;
+}
+.FollowersWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1%;
+
+}
+.title{
+  margin: 1%;
+  background: #e64944;
+  box-shadow: 0px 6px 16px 0px #0000009c;
+}
+.Wrapper{
+  display:flex;
+  justify-content: center;
+  background-color: #282c34;
+  color:white;
+  width:100%;
+  padding-top:100px;
+}
